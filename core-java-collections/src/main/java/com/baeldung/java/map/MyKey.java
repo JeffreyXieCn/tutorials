@@ -43,7 +43,7 @@ public class MyKey {
 
     @Override
     public boolean equals(Object obj) {
-        LOG.debug("Calling equals() for key: " + obj);
+        LOG.debug(this.toString() + " -> Calling equals() for key: " + obj);
         if (this == obj)
             return true;
         if (obj == null)

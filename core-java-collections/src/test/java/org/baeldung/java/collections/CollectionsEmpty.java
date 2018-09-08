@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-class CollectionsEmpty {
+public class CollectionsEmpty {
 
     @Test
     public void givenArrayList_whenAddingElement_addsNewElement() {
