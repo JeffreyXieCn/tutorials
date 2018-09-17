@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -83,6 +84,17 @@ public class PrimitiveStreamsUnitTest {
         List<Integer> expected = IntStream.of(2, 4, 6, 8, 10).boxed().collect(Collectors.toList());
 
         assertEquals(expected, evenInts);
+    }
+    
+    @Test
+    public void givenRandomThenGenerateRandomInts() {
+      Random random = new Random();
+      String methodName = new Object() {}
+      .getClass()
+      .getEnclosingMethod()
+      .getName();
+        
+      System.out.println(methodName + Arrays.toString(random.ints(10, 0, 100).toArray()));
     }
 
     class Person {

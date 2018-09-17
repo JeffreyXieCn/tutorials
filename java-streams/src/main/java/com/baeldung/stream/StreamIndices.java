@@ -19,8 +19,16 @@ public class StreamIndices {
             .collect(Collectors.toList());
         return evenIndexedNames;
     }
+    
+    public static List<String> getEvenIndexedStringsVersionThree(String[] names) {
+      List<String> evenIndexedNames = IntStream.iterate(0, n -> n + 2)
+          .limit((names.length + 1)/2)
+          .mapToObj(i -> names[i])
+          .collect(Collectors.toList());
+      return evenIndexedNames;
+  }
 
-    public List<String> getEvenIndexedStringsVersionTwo(List<String> names) {
+    public static List<String> getEvenIndexedStringsVersionTwo(List<String> names) {
         List<String> evenIndexedNames = EntryStream.of(names)
             .filterKeyValue((index, name) -> index % 2 == 0)
             .values()

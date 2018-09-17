@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -24,7 +25,7 @@ public class FunctionalInterfaceUnitTest {
     @Test
     public void whenPassingLambdaToComputeIfAbsent_thenTheValueGetsComputedAndPutIntoMap() {
         Map<String, Integer> nameMap = new HashMap<>();
-        Integer value = nameMap.computeIfAbsent("John", String::length);
+        Integer value = nameMap.computeIfAbsent("John", s -> s.length());
 
         assertEquals(new Integer(4), nameMap.get("John"));
         assertEquals(new Integer(4), value);
@@ -90,6 +91,18 @@ public class FunctionalInterfaceUnitTest {
         assertEquals(new Integer(2), fibonacci5.get(2));
         assertEquals(new Integer(3), fibonacci5.get(3));
         assertEquals(new Integer(5), fibonacci5.get(4));
+    }
+    
+    @Test
+    public void whenUsingSupplierToGenerateRandomNumbers_thenCanUseItInStreamGenerate() {
+      Random rand = new Random(37);
+      Stream<Integer> randInt = Stream.generate(() -> rand.nextInt(1000));
+      long randCount = randInt.limit(5).filter(n -> n >= 0 && n < 1000).count();
+      assertEquals(5, randCount);
+      
+      //java.lang.IllegalStateException: stream has already been operated upon or closed
+      //assertTrue(randInt.limit(10).allMatch(n -> n >=0 && n < 1000));
+      
     }
 
     @Test
