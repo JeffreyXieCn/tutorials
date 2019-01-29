@@ -12,3 +12,6 @@
 - [Iterable to Stream in Java](http://www.baeldung.com/java-iterable-to-stream)
 - [How to Iterate Over a Stream With Indices](http://www.baeldung.com/java-stream-indices)
 - [Primitive Type Streams in Java 8](http://www.baeldung.com/java-8-primitive-streams)
+- [Stream Ordering in Java](https://www.baeldung.com/java-stream-ordering)
+- [Introduction to Protonpack](https://www.baeldung.com/java-protonpack)
+- [Java Stream Filter with Lambda Expression](https://www.baeldung.com/java-stream-filter-lambda)
