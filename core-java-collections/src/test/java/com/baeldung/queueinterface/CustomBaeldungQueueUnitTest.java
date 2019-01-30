@@ -2,7 +2,7 @@ package com.baeldung.queueinterface;
 
 import org.junit.Before;
 import org.junit.Test;
-
+import com.baeldung.queueInterface.CustomBaeldungQueue;
 import static org.junit.Assert.*;
 
 public class CustomBaeldungQueueUnitTest {
